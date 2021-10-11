@@ -6,7 +6,7 @@ class Employee{
     private String behaviors;
 
     public void behaviors(){
-        behaviors="work";
+        this.behaviors="work";
     }
     
     public void fun1(){
@@ -18,7 +18,7 @@ class Programmer extends Employee{
     private String programming_languages;
 
     public void behaviors(){
-        behaviors="code, fix bugs";
+        this.behaviors="code, fix bugs";
     }
 }
 
