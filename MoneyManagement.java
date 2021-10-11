@@ -1,8 +1,6 @@
 import java.util.*;
-class MoneyManagement
-{
-	static void MoneyManage(int acc)
-	{
+class MoneyManagement{
+	static void MoneyManage(int acc){
 		int acc1, acc2, acc3, acc4, acc5, acc6;
 		acc1= acc * 55/100;
 		acc2=acc * 10/100;
@@ -19,13 +17,10 @@ class MoneyManagement
 		System.out.println("GIVE: " +acc6);
 	}	
 
-	public static void main(String[] args)
-	{
-		
+	public static void main(String[] args){
 		Scanner sc= new Scanner(System.in);
 		System.out.print("Enter your income this month: ");
 		int acc0= sc.nextInt();
 		MoneyManage(acc0);
-			
 	}
 }
