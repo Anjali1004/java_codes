@@ -4,46 +4,34 @@ public class change_case {
         Scanner scan = new Scanner(System.in);
         System.out.println("Enter a String: ");
         String str =scan.nextLine();
-        System.out.println("1. All upper case\n");
-        System.out.println("2. All lower case\n");
-        System.out.println("3. Capitalize (capitalize the first letter of each word)\n");
-        System.out.println("4. Sentence case (capitalize the first letter of the first word in a sentence)\n");
-        System.out.println("5. Invert: lower to upper and upper to lower\n  ");
-        System.out.println("Choose 1 to 5: \n");
-        int num = scan.nextInt();
         int len = str.length();
-        switch(num) {
-            case 1:System.out.println(str.toUpperCase());
-              break;
-            case 2:System.out.println(str.toLowerCase());
-              break;
-            case 3:
-                    for (int i = 0; i < len; i++) {
-                        Character ch = (Character)str.charAt(i-1);
-                        if(i==0 || ch.equals(' '))
-                            str[i] = Character.toUpperCase(i);
-                    }
-                    System.out.println(str);
-              break;
-            case 4:
-                    for (int i = 0; i < len; i++) {
-                        Character ch = (Character)str.charAt(i-1);
-                        if(i==0 || ch.equals("."))
-                            str[i] = Character.toUpperCase(i);
-                    }
-                    System.out.println(str);
-              break;
-            case 5:
-                for (int i = 0; i < len; i++) {
-                    if (Character.isLowerCase(i)) 
-                        str[i] = Character.toUpperCase(i);
-                    else
-                        str[i] = Character.toLowerCase(i);
-                }
-                System.out.println(str);
-              break;
-            
-            default:System.out.println("Invalid Entry");
-          }
+        System.out.println("Upper Case: "+str.toUpperCase());
+
+        System.out.println("Lower Case: "+str.toLowerCase());
+
+        StringBuffer capitalize=new StringBuffer(str);   
+        for (int i = 0; i < len; i++) {
+            Character ch = ((i-1)>=0) ? str.charAt(i-1) : str.charAt(0);
+            if(i==0 || ch.equals(' '))
+              capitalize.setCharAt(i, Character.toUpperCase(str.charAt(i)));
+        }
+        System.out.println("Capitalize: "+capitalize);
+
+        StringBuffer sentence_case=new StringBuffer(str.toLowerCase());
+        for (int i = 0; i < len; i++) {
+          Character ch = ((i-2)>=0) ? str.charAt(i-2) : str.charAt(0);
+          if(i==0 || ch.equals('.'))
+            sentence_case.setCharAt(i, Character.toUpperCase(str.charAt(i)));
+        }
+        System.out.println("Sentence Case: "+sentence_case);
+
+        StringBuffer invert=new StringBuffer(str);   
+        for (int i = 0; i < len; i++) {
+          if (Character.isLowerCase(str.charAt(i))) 
+            invert.setCharAt(i, Character.toUpperCase(str.charAt(i)));
+          else
+            invert.setCharAt(i, Character.toLowerCase(str.charAt(i)));
+        }
+        System.out.println("Invert: "+invert);
      }
 }
